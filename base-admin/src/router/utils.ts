@@ -20,7 +20,8 @@ import {
 } from "@pureadmin/utils";
 import { getConfig } from "@/config";
 import { buildHierarchyTree } from "@/utils/tree";
-import { sessionKey, type DataInfo } from "@/utils/auth";
+import { sessionKey } from "@/utils/auth";
+import type {   DataInfo } from "@/utils/auth";
 import { usePermissionStoreHook } from "@/store/modules/permission";
 const IFrame = () => import("@/layout/frameView.vue");
 // https://cn.vitejs.dev/guide/features.html#glob-import

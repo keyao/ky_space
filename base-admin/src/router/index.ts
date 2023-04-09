@@ -1,7 +1,8 @@
 // import "@/utils/sso";
 import { getConfig } from "@/config";
 import NProgress from "@/utils/progress";
-import { sessionKey, type DataInfo } from "@/utils/auth";
+import  {  sessionKey } from "@/utils/auth";
+import  type {   DataInfo } from "@/utils/auth";
 import { useMultiTagsStoreHook } from "@/store/modules/multiTags";
 import { usePermissionStoreHook } from "@/store/modules/permission";
 import {

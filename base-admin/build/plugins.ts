@@ -11,6 +11,9 @@ import removeConsole from "vite-plugin-remove-console";
 import themePreprocessorPlugin from "@pureadmin/theme";
 import DefineOptions from "unplugin-vue-define-options/vite";
 import { genScssMultipleScopeVars } from "../src/layout/theme";
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export function getPluginsList(
   command: string,
@@ -53,6 +56,20 @@ export function getPluginsList(
     // 打包分析
     lifecycle === "report"
       ? visualizer({ open: true, brotliSize: true, filename: "report.html" })
-      : null
+      : null,
+    // 自动引入
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+      dts: './types/auto-imports.d.ts', // 可以自定义文件生成的位置，默认是根目录下
+      // 匹配的文件，也就是哪些后缀的文件需要自动引入
+      include: [/\.[tj]sx?$/,  /\.vue$/, ],
+      // 自动引入的api从这里找
+      imports: ['vue', 'vue-router'],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+      dirs:'./types/components.d.ts',
+      globs: ['src/components/*.{vue}'],
+    }),
   ];
 }
