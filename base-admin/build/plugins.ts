@@ -68,7 +68,7 @@ export function getPluginsList(
     }),
     Components({
       resolvers: [ElementPlusResolver()],
-      dirs:'./types/components.d.ts',
+      dts:'./types/components.d.ts',
       globs: ['src/components/*.{vue}'],
     }),
   ];

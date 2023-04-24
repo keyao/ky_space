@@ -20,8 +20,23 @@ import "./style/tailwind.css";
 // 导入字体图标
 import "./assets/iconfont/iconfont.js";
 import "./assets/iconfont/iconfont.css";
+// 引入wujie
+import WujieVue from "wujie-vue3";
+
+const { bus, setupApp, preloadApp, destroyApp } = WujieVue;
+setupApp({
+  name: "Vue3",
+  url: "//localhost:7500/",
+  el:'',
+  exec: true,
+  degrade:true,
+});
+
+
+
 
 const app = createApp(App);
+
 
 // 自定义指令
 import * as directives from "@/directives";
@@ -45,6 +60,7 @@ app.component("Auth", Auth);
 
 getServerConfig(app).then(async config => {
   app.use(router);
+  app.use(WujieVue)
   await router.isReady();
   injectResponsiveStorage(app, config);
   setupStore(app);

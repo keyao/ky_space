@@ -81,6 +81,7 @@ specifiers:
   vue-router: ^4.1.6
   vue-tsc: ^1.2.0
   vue-types: ^5.0.2
+  wujie-vue3: ^1.0.14
 
 dependencies:
   '@pureadmin/descriptions': 1.1.1
@@ -105,6 +106,7 @@ dependencies:
   vue: 3.2.47
   vue-router: 4.1.6_vue@3.2.47
   vue-types: 5.0.2_vue@3.2.47
+  wujie-vue3: 1.0.14_vue@3.2.47
 
 devDependencies:
   '@commitlint/cli': 13.1.0
@@ -435,6 +437,13 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@babel/runtime/7.21.0:
+    resolution: {integrity: sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.13.11
+    dev: false
 
   /@babel/template/7.20.7:
     resolution: {integrity: sha512-8SegXApWe6VoNw0r9JHpSteLKTpTiLZ4rMlGIm9JQ18KiCtyQiAMEazujAHrUS5flrcqYZa75ukev3P6QmUwUw==}
@@ -4608,6 +4617,10 @@ packages:
       strip-indent: 3.0.0
     dev: true
 
+  /regenerator-runtime/0.13.11:
+    resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
+    dev: false
+
   /regexpp/3.2.0:
     resolution: {integrity: sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==}
     engines: {node: '>=8'}
@@ -5719,6 +5732,21 @@ packages:
       imurmurhash: 0.1.4
       signal-exit: 3.0.7
     dev: true
+
+  /wujie-vue3/1.0.14_vue@3.2.47:
+    resolution: {integrity: sha512-iKD5IcFUTs1Ajc2IUG0nOmAOzzcPmORws6WC+xCyuKueo9WFE0wtfQxDRgPRdCyj7zKJv45Ypb5ksbJfr0uWDw==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      vue: 3.2.47
+      wujie: 1.0.14
+    dev: false
+
+  /wujie/1.0.14:
+    resolution: {integrity: sha512-KKDcqV0la7SL33A2VCV1noJfUXKVMyWfjEdspccG7VxB6CKqKM5PaCFXT1u4RsmPTC+e5jI3GPKsFqQqYGp/9w==}
+    dependencies:
+      '@babel/runtime': 7.21.0
+    dev: false
 
   /xml-name-validator/4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
