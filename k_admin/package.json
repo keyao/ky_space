@@ -3,9 +3,9 @@
   "version": "4.5.0",
   "private": true,
   "scripts": {
-    "dev": "vite --mode deveplopment",
+    "dev": "vite",
     "serve": "pnpm dev",
-    "build": "rimraf dist && vite build",
+    "build": "rimraf dist &&  vite build",
     "build:staging": "rimraf dist && vite build --mode staging",
     "report": "rimraf dist && vite build",
     "preview": "vite preview",
