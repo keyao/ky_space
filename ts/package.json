@@ -1,0 +1,20 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:cjs": "node src/cjs/index.cjs",
+    "dev:esm": "node src/esm/index.mjs",
+    "dev:demo": "ts-node src/demo/demo1.ts",
+    "dev:demo2": "ts-node src/demo/demo2.ts",
+    "compile": "babel src/babel --out-dir compiled",
+    "serve": "node server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.0-dev.20230601"
+  }
+}

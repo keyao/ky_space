@@ -7,7 +7,6 @@
       url="//localhost:7500/"
     ></WujieVue>
   </div>
-
 </template>
 
 <script>
