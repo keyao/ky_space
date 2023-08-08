@@ -173,4 +173,18 @@ P.then(re=>{
 }).catch((e)=>{
     console.log()
 })
+console.clear()
+let arr = [1,2,[3,4,[{name:'柯尧'},20+30,[7,8]]],[9,10,[11,12]]]
+function oneArray(arr) {
+    let tempArr = []
+    for (let item of arr){
+        if (Array.isArray(item)){
+            tempArr = [...tempArr,...oneArray(item)]
+        } else {
+            tempArr = [...tempArr,item]
+        }
+    }
+    return tempArr
+}
 
+console.log(oneArray(arr))
