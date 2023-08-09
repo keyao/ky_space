@@ -2,14 +2,18 @@
 import HelloWorld from './components/HelloWorld.vue'
 import {Login} from "./api/login";
 async function fn(){
-  const data = await Login()
-  data.code
-  data.data
+  const [err,data] =await Login()
+  if (err) {
+    console.log(err)
+    return
+  }
+  console.log(data.code)
+
 }
 </script>
 
 <template>
-  <el-button>11</el-button>
+  <el-button @click="fn()">按钮</el-button>
 </template>
 
 <style scoped>

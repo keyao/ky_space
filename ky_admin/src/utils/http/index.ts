@@ -1,4 +1,4 @@
-import Axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
+import Axios, {AxiosError, AxiosRequestConfig, AxiosResponse, Method} from 'axios';
 import to from 'await-to-ts'
 const defaultConfig:AxiosRequestConfig = {
     baseURL:import.meta.env.VITE_URL,
@@ -27,20 +27,31 @@ export class Http {
     private interceptorsResponse():void{
         Http.axiosInstance.interceptors.response.use(response=>{
             return response.data;
+            /**
+             *
+             */
+
         },error => {
             return Promise.reject(error)
         })
     }
-    public request<T>(): Promise<T> {
-        const config:AxiosRequestConfig = {}
-        return new Promise( async (resolve, reject)=>{
-            let error: Error, response: AxiosResponse<T>;
-            [error, response] = await to(Http.axiosInstance.request(config));
-            if (!error) {
-                reject(error)
+    public request<T>(params:{
+        method:Method,
+        url:string,
+        params?:AxiosRequestConfig
+    }): Promise<[Error, T]> {
+        const config:AxiosRequestConfig = {
+            ...params
+        }
+        return to(new Promise( async (resolve, reject)=>{
+            let error: AxiosError, response: AxiosResponse<T>;
+            [error, response] = await to(Http.axiosInstance.request(config)) as [AxiosError,AxiosResponse<T>];
+            if (error) {
+                reject(error.response?.data )
+                return
             }
             resolve(response.data)
-        })
+        }))
 
     }
 }
