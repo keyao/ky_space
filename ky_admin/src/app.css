@@ -1,0 +1,3 @@
+.box{
+  background-color: v-bind(color);
+}
