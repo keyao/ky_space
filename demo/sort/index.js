@@ -169,7 +169,6 @@ const P = new Promise((resolve, reject)=>{
 })
 
 P.then(re=>{
-    console.log(re)
 }).catch((e)=>{
     console.log()
 })
@@ -188,3 +187,56 @@ function oneArray(arr) {
 }
 
 console.log(oneArray(arr))
+let k = 0
+for (let i = 0,j=0;j<10,i<20;j++,i++){
+    k = i+j
+}
+console.log(k)
+
+console.clear()
+
+
+async function fn1() {
+    return Promise.resolve('1')
+}
+
+async function fn2() {
+    return Promise.resolve('2')
+}
+
+async function fn3() {
+    return Promise.resolve('3')
+}
+
+let arr1 = [fn1(),fn2(),fn3()]
+
+async function demoTest() {
+    console.log('开始')
+    for (const item of arr1) {
+        let data = await item
+        console.log(data)
+    }
+    // for (let item of arr1) {
+    //     let data = await item
+    //     console.log('for of',data)
+    // }
+    console.log('结束')
+}
+
+demoTest()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

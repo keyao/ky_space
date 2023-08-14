@@ -54,7 +54,6 @@ export function uniqueReduce(arr:any[]) {
         }
     },[])
 }
-
 /**
  * 数组排序
  */
@@ -64,3 +63,10 @@ export function Sort(arr:number[]){
 }
 
 // 冒泡排序
+export function bubbleSort(arr:number[]) {
+    let k = 0
+    for (let i = 0,j=0;j<10,i<20;j++,i++){
+        k = i+j
+    }
+    console.log(k)
+}

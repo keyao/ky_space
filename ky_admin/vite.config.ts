@@ -12,9 +12,19 @@ export default defineConfig({
       vue(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
+      dirs: ['src/components','src/views/components'],
+      // global imports to register
+      imports: [
+        'vue',
+        'vue-router',
+        'pinia'
+      ],
+      dts:'./types/auto-imports.d.ts'
     }),
     Components({
       resolvers: [ElementPlusResolver()],
+      dirs: ['src/components','src/views/components'],
+      dts:'./types/components.d.ts'
     }),
     viteMockServe(),
     createRequireTransform()

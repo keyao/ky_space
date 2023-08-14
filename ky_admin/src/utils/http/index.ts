@@ -26,20 +26,15 @@ export class Http {
     }
     private interceptorsResponse():void{
         Http.axiosInstance.interceptors.response.use(response=>{
-            return response.data;
             /**
              *
              */
-
+            return response.data;
         },error => {
             return Promise.reject(error)
         })
     }
-    public request<T>(params:{
-        method:Method,
-        url:string,
-        params?:AxiosRequestConfig
-    }): Promise<[Error, T]> {
+    public request<T>(params:AxiosRequestConfig): Promise<[AxiosError, T]> {
         const config:AxiosRequestConfig = {
             ...params
         }
