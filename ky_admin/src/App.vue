@@ -1,8 +1,11 @@
+<template>
+  <el-button @click="fn()">按钮</el-button>
+  <div class="box box1">{{color}}</div>
+</template>
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
 import {Login} from "./api/login";
 async function fn(){
-  const [err,data] =await Login({
+  const [err,res] =await Login({
     username:'admin',
     password:'123456'
   })
@@ -10,18 +13,15 @@ async function fn(){
     console.log(err)
     return
   }
-  console.log(data)
-  obj.value ++
-
+  console.log(res)
 }
-const obj = ref<number>(15)
+
+const color = ref<string>('red')
+
 </script>
+<style scoped lang="less">
 
-<template>
-  <el-button @click="fn()">按钮</el-button>
-  <div>{{obj}}</div>
-</template>
-
-<style scoped>
+@color:v-bind(color);
+@import url('./app.less');
 
 </style>
