@@ -6,7 +6,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // mock
 import {viteMockServe} from 'vite-plugin-mock'
 import createRequireTransform from 'vite-plugin-require-transform'
-
+import { fileURLToPath, URL } from 'node:url'
 export default defineConfig({
   plugins: [
       vue(),
@@ -29,4 +29,12 @@ export default defineConfig({
     viteMockServe(),
     createRequireTransform()
   ],
+  resolve:{
+    alias:{
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
+  server:{
+    host:true
+  }
 })

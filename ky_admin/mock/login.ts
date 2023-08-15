@@ -1,7 +1,6 @@
 import {MockMethod} from "vite-plugin-mock";
 import Mock from "mockjs";
 
-const data = Mock.mock('/')
 const  HttpRequest:MockMethod[] = [{
     url:'/login',
     method:'post',

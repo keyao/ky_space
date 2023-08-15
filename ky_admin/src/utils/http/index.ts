@@ -1,4 +1,4 @@
-import Axios, {AxiosError, AxiosRequestConfig, AxiosResponse, Method} from 'axios';
+import Axios, {AxiosError, AxiosRequestConfig, AxiosResponse} from 'axios';
 import to from 'await-to-ts'
 const defaultConfig:AxiosRequestConfig = {
     baseURL:import.meta.env.VITE_URL,
@@ -46,7 +46,7 @@ export class Http {
                 return
             }
             resolve(response.data)
-        }))
+        })) as Promise<[AxiosError, T]>
 
     }
 }

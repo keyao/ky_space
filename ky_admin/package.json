@@ -9,14 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/node": "^20.5.0",
     "await-to-ts": "^1.0.6",
     "axios": "^1.4.0",
     "element-plus": "^2.3.9",
     "less": "^4.2.0",
     "mockjs": "^1.1.0",
-    "sass": "^1.65.1",
+    "pinia": "^2.1.6",
     "vite-plugin-mock": "2.9.8",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

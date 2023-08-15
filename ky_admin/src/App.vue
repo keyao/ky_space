@@ -1,6 +1,5 @@
 <template>
-  <el-button @click="fn()">按钮</el-button>
-  <div class="box box1">{{color}}</div>
+  <router-view></router-view>
 </template>
 <script setup lang="ts">
 import {Login} from "./api/login";
@@ -15,9 +14,8 @@ async function fn(){
   }
   console.log(res)
 }
-
+fn()
 const color = ref<string>('red')
-
 </script>
 <style scoped lang="less">
 
