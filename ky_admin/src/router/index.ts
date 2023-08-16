@@ -1,5 +1,4 @@
 import {Router,createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router";
-
 // 白名单路由
 const whiteModule = import.meta.glob('./white/*.ts',{eager: true})
 const whiteList:RouteRecordRaw[] = []

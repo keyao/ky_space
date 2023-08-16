@@ -214,13 +214,11 @@ async function demoTest() {
     console.log('开始')
     for (const item of arr1) {
         let data = await item
-        console.log(data)
     }
     // for (let item of arr1) {
     //     let data = await item
     //     console.log('for of',data)
     // }
-    console.log('结束')
 }
 
 demoTest()
@@ -231,12 +229,116 @@ demoTest()
 
 
 
+console.clear()
+
+function Person(param) {
+    var name = param.name; // 私有属性
+    this.age = 18; // 共有属性
+
+    this.sayName = function () {
+        console.log(name);
+    }
+}
+
+const tom = new Person({name: 'tom'});
+tom.age += 1; // 共有属性，外部可以更改
+tom.sayName(); // tom
+tom.name = 'jerry';// 共有属性，外部不可更改
+tom.sayName(); // tom
+
+console.clear()
+
+
+function fun(n,o) {
+    console.log(o)
+    return {
+        fun:function (m) {
+            return fun(m,n)
+        }
+    }
+}
+
+
+
+
+/**
+ * 1)  fun(1), 因为外层函数的返回值是一个对象，这里通过对象调用方法，并传入一个实参1，
+ * 此时m=1,然后返回值继续调用外层函数fun,并将m、n的值1，0作为形参传入即fun(1,0),
+ * 此时n=1,o=0,打印o的值，所以打印0
+ * 2)  a.fun(2), 因为外层函数的返回值是一个对象，
+ * 这里通过对象调用方法，并传入一个实参2，此时m=2,
+ * 然后返回值继续调用外层函数fun,并将m、n的值2，0作为形参传入即fun(2,0),此时n=2,o=0,打印o的值，所以打印0
+ * 3)  a.fun(3), 因为外层函数的返回值是一个对象，
+ * 这里通过对象调用方法，并传入一个实参2，此时m=2,然后返回值继续调用外层函数fun,
+ * 并将m、n的值2，0作为形参传入即fun(2,0),此时n=2,o=0,打印o的值，所以打印0
+ *
+ *
+ *
+ *
+ * 1)  fun(0), 调用最外层函数，并且传入一个参数0，进入函数代码块，首先用var 声明两个形参，此时第一个参数n=0,第二个参数o没有赋值，所以打印unfined
+ * 2)  .fun(1), 因为fun(0)的返回值是一个对象，这里通过对象调用方法，并传入一个实参1，此时m=1,然后返回值继续调用外层函数fun,并将m、n的值1，0作为形参传入即fun(1,0),此时n=1,o=0,打印o的值，所以打印0
+ * 3)  .fun(2), 因为fun(1)的返回值是一个对象，这里通过对象调用方法，并传入一个实参2，此时m=2,然后返回值继续调用外层函数fun,并将m、n的值2，1作为形参传入即fun(2,1),此时n=2,o=1,打印o的值，所以打印1
+ * 4)  .fun(3), 因为fun(2)的返回值是一个对象，这里通过对象调用方法，并传入一个实参3，此时m=3,然后返回值继续调用外层函数fun,并将m、n的值3，2作为形参传入即fun(3,2),此时n=3,o=2,打印o的值，所以打印2
+ */
 
 
 
 
 
 
+(function immediateA(a) {
+    return (function immediateB(b) {
+        console.log(a); // 打印出什么
+    })(1);
+})(0);
+
+
+console.clear()
+
+
+function fn(i){
+    return function(n){
+        console.log(n+ (i++))
+    }
+}
+
+var f = fn(10)
+f(20)   // 30
+fn(20)(40)  // 60
+fn(30)(40)  // 70
+f(30)   // 41
+
+let a = 1
+
+const sum = a + (++a) + (a++) + + (++a) + (a++) + (++a) + (a++) + (++a) + (a++)
+// 1 + 2 + 2 + 4 + 4 + 6 + 6 + 8 + 8
+
+{
+    let name = 'three'
+    const obj1 = {
+        name:'one',
+        fun1:() => {
+            console.log(this.name)
+        },
+        fun2(){
+            console.log(this.name)
+        },
+        obj2:{
+            name:'two',
+            fn1:()=>{
+                console.log(this.name)
+            },
+            fn2(){
+                console.log(this.name)
+            }
+        }
+    }
+    console.log(this)
+    obj1.fun1()
+    obj1.fun2()
+    obj1.obj2.fn1()
+    obj1.obj2.fn2()
+}
 
 
 

@@ -40,9 +40,8 @@ Object.keys(whiteModules).forEach((key) => {
     whiteList.push(...modList);
 })
 
-
-
+console.log('w')
 router.beforeEach(async (to, form, next) => {
     const permission = usePermission()
 
-}
+})
