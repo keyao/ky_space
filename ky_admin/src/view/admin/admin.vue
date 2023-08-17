@@ -2,7 +2,7 @@
   <div>admin</div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang='ts' >
 defineOptions({
   name: "admin"
 })

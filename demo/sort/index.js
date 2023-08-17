@@ -313,32 +313,23 @@ let a = 1
 const sum = a + (++a) + (a++) + + (++a) + (a++) + (++a) + (a++) + (++a) + (a++)
 // 1 + 2 + 2 + 4 + 4 + 6 + 6 + 8 + 8
 
-{
-    let name = 'three'
-    const obj1 = {
-        name:'one',
-        fun1:() => {
-            console.log(this.name)
-        },
-        fun2(){
-            console.log(this.name)
-        },
-        obj2:{
-            name:'two',
-            fn1:()=>{
-                console.log(this.name)
-            },
-            fn2(){
-                console.log(this.name)
-            }
-        }
+var m = () => { console.log(this) };//定义了一个箭头函数为m
+var obj = {
+    a: m,
+    b: function () {
+        m();
+    },
+    c: function () {
+        var m2 = () => { console.log(this) };//每次调用都会新定义这个箭头函数
+        m2();
     }
-    console.log(this)
-    obj1.fun1()
-    obj1.fun2()
-    obj1.obj2.fn1()
-    obj1.obj2.fn2()
 }
+obj.a();//window
+obj.b();//window
+obj.c();//obj
 
+var obj2={};
+obj2.c=obj.c;
+obj2.c();//obj2
 
 
